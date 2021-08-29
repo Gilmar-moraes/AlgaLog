@@ -16,6 +16,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -46,11 +49,15 @@ public class EntregaModel {
 	@Column(name = "taxa")
 	private BigDecimal taxaEntrega;
 	
+	@JsonProperty(access = Access.READ_ONLY)
 	@Column(name = "status_pedido")
 	@Enumerated(EnumType.STRING)
 	private StatusEntrega status;
 	
+	@JsonProperty(access = Access.READ_ONLY)
 	@Column(name = "data_pedido")
 	private LocalDateTime dataDoPedido;
+	
+	@JsonProperty(access = Access.READ_ONLY)
 	private LocalDateTime dataFinalizacao;
 }
