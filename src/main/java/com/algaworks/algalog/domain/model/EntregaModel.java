@@ -3,6 +3,7 @@ package com.algaworks.algalog.domain.model;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -13,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -26,6 +28,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
+@Table(name = "entrega")
 public class EntregaModel {
 
 	@EqualsAndHashCode.Include
@@ -39,10 +42,15 @@ public class EntregaModel {
 	
 	@Embedded
 	private DestinatariosModel destinatario;
+	
+	@Column(name = "taxa")
 	private BigDecimal taxaEntrega;
 	
+	@Column(name = "status_pedido")
 	@Enumerated(EnumType.STRING)
 	private StatusEntrega status;
+	
+	@Column(name = "data_pedido")
 	private LocalDateTime dataDoPedido;
-	private LocalDateTime dataFializacao;
+	private LocalDateTime dataFinalizacao;
 }
