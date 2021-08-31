@@ -46,16 +46,13 @@ public class EntregaModel {
 	@Embedded
 	private DestinatariosModel destinatario;
 	
-	@Column(name = "taxa")
-	private BigDecimal taxaEntrega;
+	private BigDecimal taxaDeEntrega;
 	
 	@JsonProperty(access = Access.READ_ONLY)
-	@Column(name = "status_pedido")
 	@Enumerated(EnumType.STRING)
-	private StatusEntrega status;
+	private StatusEntrega statusPedido;
 	
 	@JsonProperty(access = Access.READ_ONLY)
-	@Column(name = "data_pedido")
 	private LocalDateTime dataDoPedido;
 	
 	@JsonProperty(access = Access.READ_ONLY)

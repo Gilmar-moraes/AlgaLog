@@ -1,0 +1,1 @@
+alter table entrega add data_do_pedido datetime after status_pedido;

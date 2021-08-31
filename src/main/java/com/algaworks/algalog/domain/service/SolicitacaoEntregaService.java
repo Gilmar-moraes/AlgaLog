@@ -32,7 +32,7 @@ public class SolicitacaoEntregaService {
 		ClienteModel cliente = catalagoClienteService.buscar(entregaMetodo.getCliente().getId());
 		
 		entregaMetodo.setCliente(cliente);
-		entregaMetodo.setStatus(StatusEntrega.PENDENTE);
+		entregaMetodo.setStatusPedido(StatusEntrega.PENDENTE);
 		entregaMetodo.setDataDoPedido(LocalDateTime.now());
 		return entregaRepository.save(entregaMetodo);
 	}
